@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TrackingService } from './service/tracking.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tracking-system';
+
+constructor(private trackingService: TrackingService){}
+
+  submit(){
+    // this.trackingService.updateData();
+    // this.trackingService.saveData();
+  }
 }

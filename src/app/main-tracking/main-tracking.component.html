@@ -1,0 +1,76 @@
+<div class="container-fluid pt-3">
+
+    <div>
+        <p>
+            <mat-toolbar>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span>Generator Tracker</span>
+                <mat-icon>pin_drop</mat-icon>
+                <span class="example-spacer"></span>
+                <button mat-icon-button class="example-icon favorite-icon"
+                    aria-label="Example icon-button with heart icon">
+                    <mat-icon>settings</mat-icon>
+                </button>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <mat-icon>power_settings_new</mat-icon>
+                </button>
+            </mat-toolbar>
+        </p>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row">
+
+        <div class="col-12">
+            <mat-card>
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="lat">
+                            <th mat-header-cell *matHeaderCellDef> Lat </th>
+                            <td mat-cell *matCellDef="let element"> {{element.lat}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="log">
+                            <th mat-header-cell *matHeaderCellDef> Log </th>
+                            <td mat-cell *matCellDef="let element"> {{element.log}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="button">
+                            <th mat-header-cell *matHeaderCellDef> View location </th>
+                            <td mat-cell *matCellDef="let element"><button mat-button
+                                    (click)="viewLocation($event,element)">
+                                    <mat-icon>visibility</mat-icon></button> </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                        aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+            </mat-card>
+        </div>
+
+    </div>
+</div>
