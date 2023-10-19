@@ -25,7 +25,7 @@
         <div class="mat-elevation-z8">
             <mat-form-field (appearance)="input" style="width:100% !important">
                 <mat-label>Filter</mat-label>
-                <input id="test-id" matInput (keyup)="applyFilter($event)" placeholder="Search your generator" #input>
+                <input id="test-id" matInput (keyup)="applyFilter($event)" placeholder="Search your generator" autofocus #input>
             </mat-form-field>
             <table mat-table [dataSource]="dataSource">
 
