@@ -4,5 +4,9 @@
 }
 
 table {
-  width: 100%;
+  width: 80% !important;
+}
+
+.mat-elevation-z8{
+  margin: 50px;
 }
