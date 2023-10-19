@@ -1,5 +1,4 @@
 import { AfterViewInit,Component, Inject, OnInit } from '@angular/core';
-import { inject } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -41,18 +40,14 @@ export class ViewLocationComponent implements OnInit , AfterViewInit{
     
   
     /*------------------------------------------
-    --------------------------------------------
     moveMap()
-    --------------------------------------------
     --------------------------------------------*/
     moveMap(event: google.maps.MapMouseEvent) {
         if (event.latLng != null) this.center = (event.latLng.toJSON());
     }
   
     /*------------------------------------------
-    --------------------------------------------
     move()
-    --------------------------------------------
     --------------------------------------------*/
     move(event: google.maps.MapMouseEvent) {
         if (event.latLng != null) this.display = event.latLng.toJSON();

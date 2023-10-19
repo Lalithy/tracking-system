@@ -11,8 +11,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
-// import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-// import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 
@@ -20,6 +18,9 @@ import {MatCardModule} from '@angular/material/card';
 import { ViewLocationComponent } from './main-tracking/view-location/view-location.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatDialogModule } from '@angular/material/dialog';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatPaginatorModule,
     MatCardModule,
     GoogleMapsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

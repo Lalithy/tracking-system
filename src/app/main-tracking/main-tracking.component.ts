@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { TrackingService } from '../service/tracking.service';
 import { MatSort } from '@angular/material/sort';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { ViewLocationComponent } from './view-location/view-location.component';
 
 @Component({
@@ -14,18 +14,19 @@ import { ViewLocationComponent } from './view-location/view-location.component';
 
 export class MainTrackingComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'lat', 'log', 'button'];
-  dataSource:any;
-  array:any[] =[];
-  
-  // @ViewChild(MatPaginator, {static: true, read: MatPaginator}) paginator: MatPaginator;
-    //@ViewChild(MatPaginator, {static:true}) paginator: MatPaginator;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+  dataSource: any;
+  array: any[] = [];
+  globalFilter = '';
 
-  constructor(private trackingService:TrackingService,private dialog: MatDialog){
+  // @ViewChild(MatPaginator, {static: true, read: MatPaginator}) paginator: MatPaginator;
+  //@ViewChild(MatPaginator, {static:true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  constructor(private trackingService: TrackingService, private dialog: MatDialog) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     // this.trackingService.saveData();
     this.findAllTrackingDiviceDetails();
   }
@@ -35,16 +36,16 @@ export class MainTrackingComponent implements AfterViewInit {
     // this.dataSource.paginator = this.paginator;
   }
 
-  findAllTrackingDiviceDetails(){
-    this.trackingService.getData().subscribe((res:any)=>{
-      var data = Object.keys(res).map((key:any)=>{
+  findAllTrackingDiviceDetails() {
+    this.trackingService.getData().subscribe((res: any) => {
+      var data = Object.keys(res).map((key: any) => {
         return res[key]
       })
       this.dataSource = new MatTableDataSource(data)
-      this.dataSource.paginator =  this.paginator;
+      this.dataSource.paginator = this.paginator;
     })
   }
-  viewLocation(e:any, element:any){
+  viewLocation(e: any, element: any) {
     console.log(element)
     let dialogRef = this.dialog.open(ViewLocationComponent, {
       height: '500px',
@@ -54,24 +55,19 @@ export class MainTrackingComponent implements AfterViewInit {
         log: element.log
       }
     });
-
-  
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {  
-    if(mp != undefined)
-    {
-      this.paginator = mp;
-    }
-  }
 
-  
 }
 
 export interface PeriodicElement {
   name: string;
-  lat:string;
-  log:string
+  lat: string;
+  log: string
 }
 
 
