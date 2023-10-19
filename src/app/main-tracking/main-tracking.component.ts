@@ -47,8 +47,8 @@ export class MainTrackingComponent implements AfterViewInit {
   viewLocation(e:any, element:any){
     console.log(element)
     let dialogRef = this.dialog.open(ViewLocationComponent, {
-      height: '400px',
-      width: '600px',
+      height: '500px',
+      width: '900px',
       data: {
         lat: element.lat,
         log: element.log

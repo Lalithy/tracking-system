@@ -8,8 +8,8 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
   styleUrls: ['./view-location.component.css']
 })
 export class ViewLocationComponent implements OnInit , AfterViewInit{
-  latitude:number
-  longitude:number
+  latitude:number = 6.97023200599504
+  longitude:number = 79.9714257954373
   locationChosen = false;
 
   constructor(public dialog:MatDialog, @Inject(MAT_DIALOG_DATA) public data:any,private dialogRef: MatDialogRef<ViewLocationComponent>){
@@ -26,13 +26,13 @@ export class ViewLocationComponent implements OnInit , AfterViewInit{
 
   display: any;
     center: google.maps.LatLngLiteral = {
-        lat: 6.871183,
-        lng: 79.885843
+        lat: this.latitude,
+        lng: this.longitude
     };
     zoom = 6;
 
     marker = {
-      position: { lat: 6.871183, lng:  79.885843 },
+      position: { lat: this.latitude, lng:  this.longitude },
     }
   
     /*------------------------------------------
