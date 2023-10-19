@@ -20,20 +20,25 @@ export class ViewLocationComponent implements OnInit , AfterViewInit{
   }
 
   ngOnInit(): void {
-   this.latitude = this.data.lat
-    this.longitude =this.data.log
+    this.latitude = this.data.lat
+    this.longitude = this.data.log
+    console.log(this.longitude)
   }
+
 
   display: any;
     center: google.maps.LatLngLiteral = {
-        lat: this.latitude,
-        lng: this.longitude
+        lat: this.data.lat,
+        lng: this.data.log
     };
     zoom = 6;
 
     marker = {
-      position: { lat: this.latitude, lng:  this.longitude },
+      position: {
+         lat: this.data.lat, lng:  this.data.log
+        },
     }
+    
   
     /*------------------------------------------
     --------------------------------------------

@@ -9,12 +9,12 @@ export class TrackingService {
   constructor(private httpClient: HttpClient) { }
   
 
-  firebaseURL:string = 'https://tracking-system-c82b1-default-rtdb.asia-southeast1.firebasedatabase.app/base.json'
+  firebaseURL:string = 'https://tracking-system-c82b1-default-rtdb.asia-southeast1.firebasedatabase.app/generators.json'
   saveData(){
     const data = {
-      name:'divice-6',
-      lat:'6.9271',
-      log:'79.8612'
+      name:'Divice-2',
+      lat: 6.97023200599504,
+      log: 79.9714257954373
     }
     this.httpClient.post(this.firebaseURL, data).subscribe(res => {
       console.log('res', res);
@@ -50,10 +50,11 @@ export class TrackingService {
   // }
 
   updateData() {
+  
     const data = {
       name: 'updated_device',
-      lat: '6.9271',
-      log: '79.8612'
+      lat: 6.9271,
+      log: 79.8612
     };
     const key = '-NgzAri7Y4q7X0ukXCX8'; // Replace with the specific key of the data you want to update
   

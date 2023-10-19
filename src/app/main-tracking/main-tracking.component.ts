@@ -19,20 +19,20 @@ export class MainTrackingComponent implements AfterViewInit {
   
   // @ViewChild(MatPaginator, {static: true, read: MatPaginator}) paginator: MatPaginator;
     //@ViewChild(MatPaginator, {static:true}) paginator: MatPaginator;
-    @ViewChild('paginator', { static: true }) paginator: MatPaginator;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private trackingService:TrackingService,private dialog: MatDialog){
 
   }
 
   ngOnInit(){
-    this.trackingService.saveData();
+    // this.trackingService.saveData();
     this.findAllTrackingDiviceDetails();
   }
 
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
   }
 
   findAllTrackingDiviceDetails(){
@@ -54,6 +54,15 @@ export class MainTrackingComponent implements AfterViewInit {
         log: element.log
       }
     });
+
+  
+  }
+
+  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {  
+    if(mp != undefined)
+    {
+      this.paginator = mp;
+    }
   }
 
   
